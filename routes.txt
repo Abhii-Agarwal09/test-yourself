@@ -1,0 +1,23 @@
+GET / - Return landing page
+GET /register - Return sign up pagee
+POST /register - Take username, email, password
+				Check if user with email id exists
+					IF exist, return 
+					ELSE
+						Check for user by username
+						IF user exist return, duplicate username
+						ELSE create user and return
+GET /login - Return login page
+POST /login - Take username, passord
+			Find user with username
+			IF user found, redirect to dashboard
+			ELSE show redirect to register page
+
+GET /user/dashboard - Return dashboard
+GET /leaderboard - Take username
+				Find user with username
+				Find all rankings
+				Return the rankings
+GET /user/tests/colorblind - Return color blindness test page
+GET /user/tests/quiz - Return quiz taking page
+
