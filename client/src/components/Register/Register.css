@@ -1,0 +1,64 @@
+.register-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-around; */
+  height: 90vh;
+  gap: 40px;
+  padding: 5vh;
+}
+
+.register-logo-container{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  align-items: center;
+}
+
+.form-container{
+  width: 40%;
+
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* width: 75%; */
+  align-items: center;
+}
+
+.register-txt{
+  color:#314357;
+  font-size: 1.5rem;
+}
+
+input{
+  background: none;
+  outline: 0;
+  border: 2px solid #314357;
+  border-radius: 6px ;
+  font-size: 1.15rem;
+  color: #314357;
+  height: 7vh;
+  width: 60%;
+  padding: 0.5rem 0.75rem; 
+}
+
+.submit-btn{
+  background: #C98C70;
+  outline: 0;
+  border: none;
+  color: #FFF;
+  font-size: 1.25rem;
+  height: 7vh;
+  width: 60%;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+::placeholder{
+  color:#314357;
+  font-size: 1rem;
+}
