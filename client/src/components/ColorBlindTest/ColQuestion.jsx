@@ -40,13 +40,13 @@ function ColQuestion() {
       </div>
       <form onSubmit={handleSubmit}>
         {/* question 1 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/1_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="1-1"
@@ -95,13 +95,13 @@ function ColQuestion() {
         </div>
 
         {/* question 2 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/2_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="2-1"
@@ -150,13 +150,13 @@ function ColQuestion() {
         </div>
 
         {/* question 3 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/3_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="3-1"
@@ -205,13 +205,13 @@ function ColQuestion() {
         </div>
 
         {/* question 4 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/4_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="4-1"
@@ -260,13 +260,13 @@ function ColQuestion() {
         </div>
 
         {/* question 5 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/5_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="5-1"
@@ -315,13 +315,13 @@ function ColQuestion() {
         </div>
 
         {/* question 6 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/6_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="6-1"
@@ -370,13 +370,13 @@ function ColQuestion() {
         </div>
 
         {/* question 7 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/7_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="7-1"
@@ -425,13 +425,13 @@ function ColQuestion() {
         </div>
 
         {/* question 8 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/8_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="8-1"
@@ -480,13 +480,13 @@ function ColQuestion() {
         </div>
 
         {/* question 9 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/9_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="9-1"
@@ -535,13 +535,13 @@ function ColQuestion() {
         </div>
 
         {/* question 10 */}
-        <div class="questions">
+        <div className="questions">
           <div id="image">
             <img src="../src/images/0_num.png" />
           </div>
-          <div class="right-side">
-            <div class="instruction">Choose the number visible.</div>
-            <div class="options">
+          <div className="right-side">
+            <div className="instruction">Choose the number visible.</div>
+            <div className="options">
               <input
                 type="radio"
                 id="10-1"
