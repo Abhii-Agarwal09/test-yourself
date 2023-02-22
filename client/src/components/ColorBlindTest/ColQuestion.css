@@ -1,3 +1,14 @@
+.col-title-wrapper{
+    height:70px;
+    display:flex;
+    align-items:center;
+    margin:30px 124px 50px 124px;
+}
+.col-title{
+    font-family:Roboto;
+    font-size:30px;
+    letter-spacing: 0.25%;
+}
 .questions{
     margin-left:124px;
     margin-right:124px;
@@ -25,11 +36,11 @@
     font-weight:bolder;
     height:25px;
     margin-bottom:10px;
-
 }
 .options{
     font-size:16px;
 }
+
 [type="radio"]{
     opacity:0;
 }
@@ -86,7 +97,7 @@
   align-items: center;
 }
 
-/* button{
+.fancy-btn{
     width:20vw;
     height:auto;
     margin:30px;
@@ -96,4 +107,4 @@
     border:none;
     cursor:pointer;
     border-radius:30px;
-} */
+}

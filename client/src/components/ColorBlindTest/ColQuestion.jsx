@@ -33,7 +33,11 @@ function ColQuestion() {
 
   return (
     <>
-      <h1>Colorblindness test</h1>
+      <div className="col-title-wrapper">
+          <div className="col-title">
+              Colorblindness Test
+          </div>
+      </div>
       <form onSubmit={handleSubmit}>
         {/* question 1 */}
         <div class="questions">
@@ -585,8 +589,8 @@ function ColQuestion() {
           </div>
         </div>
 
-        <div class="button-container-div">
-          <button>Submit answers</button>
+        <div className="button-container-div">
+          <button className='fancy-btn'>Submit answers</button>
         </div>
       </form>
     </>

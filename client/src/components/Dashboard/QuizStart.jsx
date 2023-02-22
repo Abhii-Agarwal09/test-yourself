@@ -1,15 +1,15 @@
 import React from "react";
+import Navbar from "../Navbar/Navbar";
 import Landing from "../Landing/Landing";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import { useGlobalContext } from "../../context/Context";
 
-const QuizForm = () => {
+
+const QuizStart = () => {
   const { quiz, handleChange, handleSubmit, error } = useGlobalContext();
   return (
     <div>
-      <Landing />
-
       <section className="quiz quiz-small">
         <form>
           <h2 style={{ marginBottom: "2rem" }}>Let's Start Quiz</h2>
@@ -70,7 +70,6 @@ const QuizForm = () => {
           <button
             type="submit"
             onClick={handleSubmit}
-            // className='btn btn-primary start-btn'
             style={{
               backgroundColor: "#C98C70",
               width: "400px",
@@ -85,4 +84,4 @@ const QuizForm = () => {
   );
 };
 
-export default QuizForm;
+export default QuizStart;
