@@ -1,26 +1,45 @@
 import logo from '../../assets/register-logo.svg';
 import './Register.css';
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // user k register ka data backend pe jayega and
 // res aayega usko local storage pe save karo using
 //
 
 function Register({ setIsLoggedIn }) {
+  const navigate = useNavigate();
   const [registerFormData, setRegisterFormData] = useState({
     name: '',
     email: '',
     password: '',
   });
 
-  const registerFormSubmitHandler = (e) => {
+  const registerFormSubmitHandler = async (e) => {
     e.preventDefault();
     // localStorage.setItem('isLoggedIn', true);
-    setRegisterFormData({
-      name: '',
-      email: '',
-      password: '',
-    });
+    const res = await axios.post(
+      'http://localhost:3001/register',
+      registerFormData
+    );
+    console.log(res);
+    if (res.data.success === true) {
+      setIsLoggedIn(true);
+      setRegisterFormData({
+        name: '',
+        email: '',
+        password: '',
+      });
+      navigate('/test/colorblindness');
+    } else {
+      alert(res.data.message);
+      setRegisterFormData({
+        name: '',
+        email: '',
+        password: '',
+      });
+    }
     setIsLoggedIn(true);
   };
 

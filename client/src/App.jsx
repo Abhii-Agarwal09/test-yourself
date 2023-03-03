@@ -7,6 +7,7 @@ import Register from './components/Register/Register';
 import Dashboard from './components/Dashboard/Dashboard';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ColQuestion from './components/ColorBlindTest/ColQuestion';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -25,6 +26,7 @@ function App() {
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/test/colorblindness" element={<ColQuestion />} />
       </Routes>
       {/* <Login setIsLoggedIn={setIsLoggedIn} /> */}
       {/* <Register setIsLoggedIn={setIsLoggedIn} /> */}

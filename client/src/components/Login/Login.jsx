@@ -1,20 +1,34 @@
 import './Login.css';
 import logo from '../../assets/register-logo.svg';
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login({ setIsLoggedIn }) {
+  const navigate = useNavigate();
   const [loginFormData, setLoginFormData] = useState({
     email: '',
     password: '',
   });
 
-  const loginFormSubmitHandler = (e) => {
+  const loginFormSubmitHandler = async (e) => {
     e.preventDefault();
-    setIsLoggedIn(true);
-    setLoginFormData({
-      email: '',
-      password: '',
-    });
+    const res = await axios.post('http://localhost:3001/login', loginFormData);
+    console.log(res);
+    if (res.data.success === true) {
+      setIsLoggedIn(true);
+      setLoginFormData({
+        email: '',
+        password: '',
+      });
+      navigate('/dashboard');
+    } else {
+      alert(res.data.message);
+      setLoginFormData({
+        email: '',
+        password: '',
+      });
+    }
   };
 
   const updateLoginFormData = (e) => {
