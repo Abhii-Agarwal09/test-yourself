@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useState, useContext } from "react";
+import axios from 'axios';
+import React, { useState, useContext } from 'react';
 
 const table = {
   sports: 21,
@@ -7,7 +7,7 @@ const table = {
   politics: 24,
 };
 
-const API_ENDPOINT = "https://opentdb.com/api.php?";
+const API_ENDPOINT = 'https://opentdb.com/api.php?';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -19,8 +19,8 @@ const AppProvider = ({ children }) => {
   const [error, setError] = useState(false);
   const [quiz, setQuiz] = useState({
     amount: 10,
-    category: "sports",
-    difficulty: "easy",
+    category: 'sports',
+    difficulty: 'easy',
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);

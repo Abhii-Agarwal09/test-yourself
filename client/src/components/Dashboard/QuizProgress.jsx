@@ -1,7 +1,7 @@
-import React from "react";
-import QuizStart from "./QuizStart";
-import { useGlobalContext } from "../../context/Context";
-import Modal from "../Modal/Modal";
+import React from 'react';
+import QuizStart from './QuizStart';
+import { useGlobalContext } from '../../context/Context';
+import Modal from '../Modal/Modal';
 
 function QuizProgress() {
   const {
@@ -51,9 +51,9 @@ function QuizProgress() {
                   <button
                     key={index}
                     style={{
-                      width: "60%",
-                      textAlign: "center",
-                      backgroundColor: "#C98C70",
+                      width: '60%',
+                      textAlign: 'center',
+                      backgroundColor: '#C98C70',
                     }}
                     className="btn btn-info answer-btn"
                     onClick={() => checkAnswer(correct_answer === answer)}
@@ -66,7 +66,7 @@ function QuizProgress() {
         </article>
         <button
           className="btn btn-warning next-question"
-          style={{ width: "20%", marginRight: "1rem" }}
+          style={{ width: '20%', marginRight: '1rem' }}
           onClick={nextQuestion}
         >
           Next Question

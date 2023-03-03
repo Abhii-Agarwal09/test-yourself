@@ -1,4 +1,4 @@
-.description-container{
+.description-container {
   display: flex;
   flex-direction: column;
   background-color: #314357;
@@ -6,44 +6,43 @@
   align-items: center;
   /* height: 70vh; */
   font-size: 20px;
-  padding:50px 30px;
+  padding: 50px 30px;
   gap: 10px;
   text-align: center;
 }
 
-.description-logo-container{
-  color:white;
+.description-logo-container {
+  color: white;
 }
 
-.description{
+.description {
   padding: 1rem;
   width: 60%;
   line-height: 1.6;
 }
 
-.made-by-container{
+.made-by-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #C98C70;
+  background-color: #c98c70;
   color: white;
   font-size: 17px;
   /* height: 20vh; */
 }
 
-.names-list{
+.names-list {
   list-style-type: none;
   display: flex;
   margin-left: 2rem;
-
 }
 
-li{
+li {
   padding: 40px;
 }
 
-a{
+a {
   text-decoration: none;
   color: white;
 }

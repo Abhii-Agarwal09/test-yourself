@@ -22,30 +22,30 @@ function Navbar({ isLoggedIn }) {
 
   return (
     <>
-      <div className='nav-container'>
-        <div className='logo-container'>
+      <div className="nav-container">
+        <div className="logo-container">
           {/* image and name  */}
-          <div className='img-container'>
-            <img src={logo} alt='' />
+          <div className="img-container">
+            <img src={logo} alt="" />
           </div>
-          <p className='heading'>
-            <Link to='/'>Test Yourself</Link>
+          <p className="heading">
+            <Link to="/">Test Yourself</Link>
           </p>
         </div>
-        <div className='nav-btn-container'>
+        <div className="nav-btn-container">
           {/* login,register,logout button */}
           {!isLoggedIn ? (
-            <div className='login-btn-container'>
-              <button className='login-btn btn'>
+            <div className="login-btn-container">
+              <button className="login-btn btn">
                 <Link to={'/login'}>Login</Link>
               </button>
-              <button className='register-btn btn'>
+              <button className="register-btn btn">
                 <Link to={'/register'}>Register</Link>
               </button>
             </div>
           ) : (
-            <div className='logout-btn-container'>
-              <button className='logout-btn btn'>Logout</button>
+            <div className="logout-btn-container">
+              <button className="logout-btn btn">Logout</button>
             </div>
           )}
         </div>

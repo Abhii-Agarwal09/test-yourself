@@ -9,24 +9,24 @@ function Dashboard() {
     setActiveTab(e.target.attributes['data-name'].nodeValue);
   };
   return (
-    <div className='dashboard-layout'>
-      <aside className='sidebar'>
-        <div className='sidebar-avatar'>
-          <div className='sidebar-avatar-img'>
-            <img src='../src/images/Guy 1.png' alt='avatar image' />
+    <div className="dashboard-layout">
+      <aside className="sidebar">
+        <div className="sidebar-avatar">
+          <div className="sidebar-avatar-img">
+            <img src="../src/images/Guy 1.png" alt="avatar image" />
           </div>
-          <div className='sidebar-avatar-name'>Joshua</div>
+          <div className="sidebar-avatar-name">Joshua</div>
         </div>
-        <div className='sidebar-profile'>
+        <div className="sidebar-profile">
           <p>Profile</p>
         </div>
-        <div className='sidebar-colblind-test'>
-          <p data-name='colorblind' onClick={activeTabChangeHandler}>
+        <div className="sidebar-colblind-test">
+          <p data-name="colorblind" onClick={activeTabChangeHandler}>
             Colorblind test
           </p>
         </div>
-        <div className='sidebar-attend-quiz'>
-          <p data-name='quiz' onClick={activeTabChangeHandler}>
+        <div className="sidebar-attend-quiz">
+          <p data-name="quiz" onClick={activeTabChangeHandler}>
             Attend Quiz
           </p>
         </div>

@@ -1,5 +1,5 @@
-import React from "react";
-import { useGlobalContext } from "../../context/Context";
+import React from 'react';
+import { useGlobalContext } from '../../context/Context';
 
 const Modal = () => {
   function findComment(percentage) {
@@ -13,7 +13,7 @@ const Modal = () => {
   return (
     <div
       className={`${
-        isModalOpen ? "modal-container isOpen" : "modal-container"
+        isModalOpen ? 'modal-container isOpen' : 'modal-container'
       }`}
     >
       <div className="modal-content">
@@ -25,7 +25,7 @@ const Modal = () => {
 
         <button
           className="btn btn-success close-btn"
-          style={{ width: "50%" }}
+          style={{ width: '50%' }}
           onClick={closeModal}
         >
           Play Again

@@ -16,7 +16,6 @@
 
 .form-container {
   width: 40%;
-
 }
 
 .login-form {
@@ -45,10 +44,10 @@ input {
 }
 
 .submit-btn {
-  background: #C98C70;
+  background: #c98c70;
   outline: 0;
   border: none;
-  color: #FFF;
+  color: #fff;
   font-size: 1.25rem;
   height: 7vh;
   width: 60%;

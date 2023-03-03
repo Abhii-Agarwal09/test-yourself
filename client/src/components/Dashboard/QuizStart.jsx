@@ -1,18 +1,19 @@
-import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Landing from "../Landing/Landing";
-import Login from "../Login/Login";
-import Register from "../Register/Register";
-import { useGlobalContext } from "../../context/Context";
-
+import React from 'react';
+import Navbar from '../Navbar/Navbar';
+import Landing from '../Landing/Landing';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import { useGlobalContext } from '../../context/Context';
 
 const QuizStart = () => {
+  const handle = useFullScreenHandle();
   const { quiz, handleChange, handleSubmit, error } = useGlobalContext();
   return (
     <div>
       <section className="quiz quiz-small">
         <form>
-          <h2 style={{ marginBottom: "2rem" }}>Let's Start Quiz</h2>
+          <h2 style={{ marginBottom: '2rem' }}>Let's Start Quiz</h2>
           <div className="mb-3">
             <label htmlFor="category" className="form-label">
               Category
@@ -31,7 +32,7 @@ const QuizStart = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="noOfQuestions" className="form-label">
-              {" "}
+              {' '}
               Number of Questions
             </label>
             <input
@@ -43,7 +44,7 @@ const QuizStart = () => {
               onChange={handleChange}
               min={1}
               max={50}
-              style={{ width: "400px" }}
+              style={{ width: '400px' }}
             />
           </div>
           <div className="mb-3">
@@ -69,11 +70,14 @@ const QuizStart = () => {
           )}
           <button
             type="submit"
-            onClick={handleSubmit}
+            onClick={() => {
+              handle.enter();
+              handlerSubmit();
+            }}
             style={{
-              backgroundColor: "#C98C70",
-              width: "400px",
-              margin: "0 auto",
+              backgroundColor: '#C98C70',
+              width: '400px',
+              margin: '0 auto',
             }}
           >
             Start

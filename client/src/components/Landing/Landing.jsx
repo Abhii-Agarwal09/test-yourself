@@ -1,5 +1,5 @@
-import logo from "../../assets//landing-logo.svg";
-import "./Landing.css";
+import logo from '../../assets//landing-logo.svg';
+import './Landing.css';
 function Landing() {
   return (
     <>

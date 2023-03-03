@@ -11,20 +11,20 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   return (
-    <div className='App'>
+    <div className="App">
       <Navbar isLoggedIn={isLoggedIn} />
       {/* <Landing /> */}
       <Routes>
-        <Route path='/' element={<Landing />} />
+        <Route path="/" element={<Landing />} />
         <Route
-          path='/register'
+          path="/register"
           element={<Register setIsLoggedIn={setIsLoggedIn} />}
         />
         <Route
-          path='/login'
+          path="/login"
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       {/* <Login setIsLoggedIn={setIsLoggedIn} /> */}
       {/* <Register setIsLoggedIn={setIsLoggedIn} /> */}
