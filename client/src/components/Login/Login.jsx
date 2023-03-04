@@ -16,6 +16,8 @@ function Login({ setIsLoggedIn }) {
     const res = await axios.post('http://localhost:3001/login', loginFormData);
     console.log(res);
     if (res.data.success === true) {
+      localStorage.setItem('username', res.data.name);
+      localStorage.setItem('email', res.data.email);
       setIsLoggedIn(true);
       setLoginFormData({
         email: '',

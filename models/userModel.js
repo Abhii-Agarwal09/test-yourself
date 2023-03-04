@@ -7,7 +7,7 @@ const userSchema = new Schema(
     email: String,
     password: String,
     isColorblind: { type: Boolean, default: false },
-    colorBlindnessType: String,
+    colorBlindnessType: { type: String, default: 'none' },
     totalQuizAttempt: Number,
     totalQuizMarksObtained: Number,
     rankInLeaderboard: Number,

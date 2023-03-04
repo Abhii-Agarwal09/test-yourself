@@ -1,7 +1,7 @@
 import './navbar.css';
 import logo from '../../assets/logo.svg';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // function Navbar({ name }) {
 // 	return <div>Hello,{name}</div>;
 // }
@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom';
 // getItem karke
 // and store in isLoggedIn using state management
 
-function Navbar({ isLoggedIn }) {
+function Navbar({ isLoggedIn, setIsLoggedIn }) {
+  const navigate = useNavigate();
   // useEffect(() => {
   // 	const loggedIn=localStorage.getItem('isLoggedIn');
   // 	console.log(loggedIn);
@@ -19,6 +20,14 @@ function Navbar({ isLoggedIn }) {
   // },[]);
 
   // console.log(isLoggedIn);
+
+  const logoutHandler = (e) => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('type');
+    navigate('/');
+  };
 
   return (
     <>
@@ -45,7 +54,9 @@ function Navbar({ isLoggedIn }) {
             </div>
           ) : (
             <div className="logout-btn-container">
-              <button className="logout-btn btn">Logout</button>
+              <button className="logout-btn btn" onClick={logoutHandler}>
+                Logout
+              </button>
             </div>
           )}
         </div>

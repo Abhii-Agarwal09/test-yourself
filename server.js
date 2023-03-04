@@ -3,6 +3,7 @@ import express, { json, urlencoded } from 'express';
 import cors from 'cors';
 import { loginUser, registerUser } from './controllers/authController.js';
 import connectDB from './config/db.js';
+import { updateColorblindnessData } from './controllers/testController.js';
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.get('/register', (req, res) => {
 });
 
 app.post('/register', registerUser);
+app.post('/result/test/colorblind', updateColorblindnessData);
 
 // Dashboard user routes
 app.get('/user/dashboard', (req, res) => {

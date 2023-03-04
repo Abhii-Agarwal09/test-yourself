@@ -27,6 +27,7 @@ const registerUser = async (req, res) => {
     return res.json({
       success: true,
       message: 'User registered successfully',
+      data: user,
     });
   } catch (err) {
     console.error(err);
@@ -57,7 +58,7 @@ const loginUser = async (req, res) => {
         });
       }
       if (result) {
-        return res.json({ success: true, message: 'Logged in' });
+        return res.json({ success: true, message: 'Logged in', data: user });
       }
     });
   } catch (err) {
