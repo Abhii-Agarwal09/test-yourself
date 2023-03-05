@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import axios from 'axios';
 import './dashboard.css';
 import { useNavigate } from 'react-router-dom';
+import 'regenerator-runtime';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
 
 const QuizStart = () => {
   const navigate = useNavigate();
@@ -17,15 +21,79 @@ const QuizStart = () => {
   const [error, setError] = useState(false);
   const [quiz, setQuiz] = useState({
     amount: 10,
-    category: 'sports',
+    // category: 'sports',
     difficulty: 'easy',
   });
-
   const table = {
     sports: 21,
     history: 23,
     politics: 24,
   };
+
+  const commands = [
+    {
+      command: 'Topic *',
+      callback: (e) => {
+        console.log(e);
+        // console.log(resetTranscript);
+        setTopic(e);
+        // resetTranscript();
+      },
+    },
+    {
+      command: 'Questions *',
+      callback: (e) => {
+        console.log(e);
+        setNumberOfQuestions(e);
+      },
+    },
+    {
+      command: 'Difficulty *',
+      callback: (e) => {
+        console.log(e);
+        setDifficulty(e);
+      },
+    },
+    {
+      command: 'Start quiz',
+      callback: (e) => {
+        console.log(topic, numberOfQuestions, difficulty);
+        // setDifficulty(e);
+        const url = `${API_ENDPOINT}amount=${numberOfQuestions}&difficulty=${difficulty}&category=${table[topic]}&type=multiple`;
+        console.log(url);
+        fetchQuestions(url);
+      },
+    },
+    {
+      command: 'clear',
+      callback: ({ resetTranscript }) => resetTranscript(),
+    },
+  ];
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition({ commands });
+
+  const [topic, setTopic] = useState('');
+  const [numberOfQuestions, setNumberOfQuestions] = useState();
+  const [difficulty, setDifficulty] = useState('');
+  const topicChangeHandler = (e) => {
+    // console.log(e);
+    // console.log(e.target.value)
+    setTopic(e.target.value);
+  };
+  const numberOfQuestionsChangeHandler = (e) => {
+    setNumberOfQuestions(e.target.value);
+  };
+  const difficultyChangeHandler = (e) => {
+    setDifficulty(e.target.value);
+  };
+
+  useEffect(() => {
+    SpeechRecognition.startListening({ continuous: true });
+  }, []);
 
   let question, incorrect_answers, correct_answer;
   let answers;
@@ -33,7 +101,7 @@ const QuizStart = () => {
   const fetchQuestions = async (url) => {
     const res = await axios.get(url);
     // console.log(url);
-    // console.log(res);
+    console.log(res);
     setQuestions(() => res.data.results);
     question = questions[index].question;
     incorrect_answers = questions[index].incorrect_answers;
@@ -231,10 +299,13 @@ const QuizStart = () => {
                 className="form-select"
                 name="category"
                 id="category"
-                value={quiz.category}
-                onChange={handleChange}
+                value={topic}
+                onChange={topicChangeHandler}
               >
-                <option value="sports">sports</option>
+                <option value="#">Select a topic</option>
+                <option name="sports" value="sports">
+                  sports
+                </option>
                 <option value="history">history</option>
                 <option value="politics">politics</option>
               </select>
@@ -249,8 +320,8 @@ const QuizStart = () => {
                 name="amount"
                 id="noOfQuestions"
                 className="form-control"
-                value={quiz.amount}
-                onChange={handleChange}
+                value={numberOfQuestions}
+                onChange={numberOfQuestionsChangeHandler}
                 min={1}
                 max={50}
                 style={{ width: '400px' }}
@@ -264,9 +335,10 @@ const QuizStart = () => {
                 className="form-select"
                 name="difficulty"
                 id="difficulty"
-                value={quiz.difficulty}
-                onChange={handleChange}
+                value={difficulty}
+                onChange={difficultyChangeHandler}
               >
+                <option value="#">Select difficulty</option>
                 <option value="easy">easy</option>
                 <option value="medium">medium</option>
                 <option value="hard">hard</option>
@@ -290,6 +362,7 @@ const QuizStart = () => {
             >
               Start
             </button>
+            <p>{transcript}</p>
           </form>
         </section>
       </div>

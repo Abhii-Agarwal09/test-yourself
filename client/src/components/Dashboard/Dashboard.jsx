@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import QuizProgress from './QuizProgress';
 import QuizStart from './QuizStart';
 import Sidebar from './Sidebar';
 
+
 function Dashboard() {
   const [activeTab, setActiveTab] = useState('quiz');
+
+  
 
   const activeTabChangeHandler = (e) => {
     setActiveTab(e.target.attributes['data-name'].nodeValue);
