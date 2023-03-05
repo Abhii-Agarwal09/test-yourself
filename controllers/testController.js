@@ -1,3 +1,4 @@
+import QuizResult from '../models/quizResultModel.js';
 import User from '../models/userModel.js';
 
 const updateColorblindnessData = async (req, res) => {
@@ -23,4 +24,41 @@ const updateColorblindnessData = async (req, res) => {
   }
 };
 
-export { updateColorblindnessData };
+const quizSubmit = async (req, res) => {
+  try {
+    const {
+      email,
+      maximumMarks,
+      subject,
+      difficulty,
+      marksObtained,
+      numberOfQuestions,
+    } = req.body;
+    console.log(email);
+    const user = await User.findOne({ email });
+    const quizResult = new QuizResult({
+      takenBy: user._id,
+      maximumMarks,
+      subject,
+      difficulty,
+      marksObtained,
+      numberOfQuestions,
+    });
+    await quizResult.save();
+    user.quizzesGiven.push(quizResult._id);
+    await user.save();
+    res.json({
+      success: true,
+      message: 'Quiz attempted',
+      data: {
+        user,
+        quizResult,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: 'There was an error' });
+  }
+};
+
+export { updateColorblindnessData, quizSubmit };

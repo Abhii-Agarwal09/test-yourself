@@ -6,7 +6,7 @@ const quizResultSchema = new Schema(
     takenBy: { type: Schema.Types.ObjectId, ref: 'user' },
     subject: String,
     numberOfQuestions: Number,
-    Difficulty: String,
+    difficulty: String,
     maximumMarks: Number,
     marksObtained: Number,
   },

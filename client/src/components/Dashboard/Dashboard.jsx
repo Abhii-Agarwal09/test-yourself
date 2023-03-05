@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import QuizProgress from './QuizProgress';
+import QuizStart from './QuizStart';
 import Sidebar from './Sidebar';
 
 function Dashboard() {
@@ -33,7 +34,7 @@ function Dashboard() {
       </aside>
       {/* <Sidebar /> */}
       {/* <QuizProgress /> */}
-      {activeTab === 'quiz' ? <QuizProgress /> : <h1>Colorblindness test</h1>}
+      {activeTab === 'quiz' ? <QuizStart /> : <h1>Colorblindness test</h1>}
     </div>
   );
 }

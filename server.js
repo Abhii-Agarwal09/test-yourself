@@ -3,7 +3,10 @@ import express, { json, urlencoded } from 'express';
 import cors from 'cors';
 import { loginUser, registerUser } from './controllers/authController.js';
 import connectDB from './config/db.js';
-import { updateColorblindnessData } from './controllers/testController.js';
+import {
+  updateColorblindnessData,
+  quizSubmit,
+} from './controllers/testController.js';
 
 const app = express();
 
@@ -58,10 +61,7 @@ app.get('/user/quiz', (req, res) => {
   res.json({ success: true, message: 'Quiz page' });
 });
 
-app.post('/user/quiz/result', (req, res) => {
-  // Post quiz result
-  res.json({ success: true, message: 'Quiz result posted' });
-});
+app.post('/result/test/quiz', quizSubmit);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

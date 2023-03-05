@@ -4,15 +4,10 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-.dashboard-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: 10vw;
-}
+
 
 /**<<<QUIZ>>>**/
-main {
-  min-height: 100vh;
+/* main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +40,7 @@ main {
 .error {
   color: darkred;
   text-transform: capitalize;
-}
+} */
 
 /** <<<MODAL>>> **/
 .modal-container {
