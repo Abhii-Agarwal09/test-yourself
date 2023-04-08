@@ -1,10 +1,12 @@
 import './Login.css';
 import logo from '../../assets/register-logo.svg';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../../context/ThemeContext';
 
 function Login({ setIsLoggedIn }) {
+  const { theme, handleThemeChange } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [loginFormData, setLoginFormData] = useState({
     email: '',
@@ -18,12 +20,13 @@ function Login({ setIsLoggedIn }) {
     if (res.data.success === true) {
       localStorage.setItem('username', res.data.data.name);
       localStorage.setItem('email', res.data.data.email);
-      localStorage.setItem('type', res.data.data.colorBlindnessType)
+      localStorage.setItem('type', res.data.data.colorBlindnessType);
       setIsLoggedIn(true);
       setLoginFormData({
         email: '',
         password: '',
       });
+      handleThemeChange(res.data.data.colorBlindnessType)
       navigate('/dashboard');
     } else {
       alert(res.data.message);

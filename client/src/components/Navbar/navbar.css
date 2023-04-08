@@ -1,5 +1,5 @@
 .nav-container {
-  background-color: #314357;
+  background-color: var(--primary-color);
   display: flex;
   height: 10vh;
   justify-content: space-between;
@@ -27,7 +27,7 @@
 .btn {
   background: none;
   outline: 0;
-  border: 2px solid #e3b587;
+  border: 2px solid var(--secondary-color);
   color: #fff;
   font-size: 1rem;
   padding: 0.5rem 1.5rem;

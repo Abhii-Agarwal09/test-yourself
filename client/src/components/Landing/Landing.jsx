@@ -1,9 +1,15 @@
 import logo from '../../assets//landing-logo.svg';
 import './Landing.css';
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
+
 function Landing() {
+  const { theme, handleThemeChange } = useContext(ThemeContext);
   return (
     <>
-      <div className="description-container">
+      <div
+        className={`description-container theme-${theme ? theme : 'default'}`}
+      >
         <div className="description-logo-container">
           <img src={logo} />
         </div>
@@ -18,7 +24,7 @@ function Landing() {
           validity of the test.
         </p>
       </div>
-      <div className="made-by-container">
+      <div className={`made-by-container theme-${theme ? theme : 'default'}`}>
         <p className="made-by-heading">Made by:</p>
         <div className="names">
           <ul className="names-list">

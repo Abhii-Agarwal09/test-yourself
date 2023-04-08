@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../../context/ThemeContext';
 
-const ColorBlindnessTest = () => {
+const ColorBlindnessTest = ({ setIsLoggedIn }) => {
+  const { theme, handleThemeChange } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState({});
   const [currentImage, setCurrentImage] = useState(0);
@@ -20,6 +22,7 @@ const ColorBlindnessTest = () => {
       );
       console.log(res);
       if (res.data.success === true) {
+        setIsLoggedIn(true);
         localStorage.setItem('type', type);
         navigate('/dashboard');
       }
@@ -44,6 +47,7 @@ const ColorBlindnessTest = () => {
         }
         console.log(type);
         const email = localStorage.getItem('email');
+        handleThemeChange(type);
         postColorBlindData(email, type);
       }
     }
@@ -116,41 +120,51 @@ const ColorBlindnessTest = () => {
   };
 
   return (
-    <div>
-      <h2>Color Blindness Test</h2>
-      <p>Which number do you see?</p>
+    <div className="colorblindness-quiz-container">
+      <h2 className="colorblindness-heading">Color Blindness Test</h2>
+      <p className="colorblindness-text">Which number do you see?</p>
       <img src={images[currentImage].src} alt={images[currentImage].alt} />
-      <div>
-        <input
-          type="radio"
-          id="option1"
-          value={images[currentImage].correctOption}
-          checked={
-            selectedOption[currentImage] === images[currentImage].correctOption
-          }
-          onChange={handleOptionChange}
-        />
-        <label htmlFor="option1">{images[currentImage].correctOption}</label>
+      <div className="colorblindness-answer-container">
+        <div>
+          <input
+            type="radio"
+            id="option1"
+            value={images[currentImage].correctOption}
+            checked={
+              selectedOption[currentImage] ===
+              images[currentImage].correctOption
+            }
+            onChange={handleOptionChange}
+          />
+          <label htmlFor="option1">{images[currentImage].correctOption}</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="option2"
+            value="Other"
+            checked={selectedOption[currentImage] === 'Other'}
+            onChange={handleOptionChange}
+          />
+          <label htmlFor="option2">Other</label>
+        </div>
       </div>
-      <div>
-        <input
-          type="radio"
-          id="option2"
-          value="Other"
-          checked={selectedOption[currentImage] === 'Other'}
-          onChange={handleOptionChange}
-        />
-        <label htmlFor="option2">Other</label>
+      <div className="colorblindness-btn-container">
+        <button
+          onClick={handlePrev}
+          disabled={currentImage === 0}
+          className="coloraction-btn"
+        >
+          Prev
+        </button>
+        <button
+          onClick={handleNext}
+          disabled={currentImage === images.length - 1}
+          className="coloraction-btn"
+        >
+          Next
+        </button>
       </div>
-      <button onClick={handlePrev} disabled={currentImage === 0}>
-        Prev
-      </button>
-      <button
-        onClick={handleNext}
-        disabled={currentImage === images.length - 1}
-      >
-        Next
-      </button>
     </div>
   );
 };

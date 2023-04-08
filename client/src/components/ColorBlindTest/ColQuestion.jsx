@@ -1,7 +1,7 @@
 import React from 'react';
 import './ColQuestion.css';
 
-function ColQuestion() {
+function ColQuestion({ setIsLoggedIn }) {
   const [formData, setFormData] = React.useState({
     question1: '',
     question2: '',

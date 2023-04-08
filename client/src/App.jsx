@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom';
 import ColQuestion from './components/ColorBlindTest/ColQuestion';
 import ColorBlindnessTest from './components/ColorBlindTest/ColorblindnessTest';
 
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   return (
@@ -27,7 +28,10 @@ function App() {
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/test/colorblindness" element={<ColorBlindnessTest />} />
+        <Route
+          path="/test/colorblindness"
+          element={<ColorBlindnessTest setIsLoggedIn={setIsLoggedIn} />}
+        />
       </Routes>
       {/* <Login setIsLoggedIn={setIsLoggedIn} /> */}
       {/* <Register setIsLoggedIn={setIsLoggedIn} /> */}

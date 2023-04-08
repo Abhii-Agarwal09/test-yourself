@@ -1,37 +1,25 @@
 import './navbar.css';
 import logo from '../../assets/logo.svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// function Navbar({ name }) {
-// 	return <div>Hello,{name}</div>;
-// }
-// export default Navbar;
-
-// useffect se chack karo is user logged h ki nhi
-// getItem karke
-// and store in isLoggedIn using state management
+import { ThemeContext } from '../../context/ThemeContext';
 
 function Navbar({ isLoggedIn, setIsLoggedIn }) {
+  const { theme, handleThemeChange } = useContext(ThemeContext);
   const navigate = useNavigate();
-  // useEffect(() => {
-  // 	const loggedIn=localStorage.getItem('isLoggedIn');
-  // 	console.log(loggedIn);
-  // 	setIsLoggedIn(loggedIn);
-  // },[]);
-
-  // console.log(isLoggedIn);
 
   const logoutHandler = (e) => {
     setIsLoggedIn(false);
     localStorage.removeItem('username');
     localStorage.removeItem('email');
     localStorage.removeItem('type');
+    handleThemeChange('default');
     navigate('/');
   };
 
   return (
     <>
-      <div className="nav-container">
+      <div className={`nav-container theme-${theme ? theme : 'default'}`}>
         <div className="logo-container">
           {/* image and name  */}
           <div className="img-container">

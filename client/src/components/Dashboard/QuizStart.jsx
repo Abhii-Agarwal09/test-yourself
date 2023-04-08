@@ -7,6 +7,7 @@ import 'regenerator-runtime';
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
+import Webcam from 'react-webcam';
 
 const QuizStart = () => {
   const navigate = useNavigate();
@@ -24,6 +25,11 @@ const QuizStart = () => {
     // category: 'sports',
     difficulty: 'easy',
   });
+  const videoConstraints = {
+    width: 300,
+    height: 300,
+    facingMode: { exact: 'user' },
+  };
   const table = {
     sports: 21,
     history: 23,
@@ -41,7 +47,7 @@ const QuizStart = () => {
       },
     },
     {
-      command: 'Questions *',
+      command: 'Question *',
       callback: (e) => {
         console.log(e);
         setNumberOfQuestions(e);
@@ -66,7 +72,12 @@ const QuizStart = () => {
     },
     {
       command: 'clear',
-      callback: ({ resetTranscript }) => resetTranscript(),
+      callback: ({ resetTranscript }) => {
+        setTopic('');
+        setNumberOfQuestions('');
+        setDifficulty('');
+        resetTranscript();
+      },
     },
   ];
   const {
@@ -80,8 +91,8 @@ const QuizStart = () => {
   const [numberOfQuestions, setNumberOfQuestions] = useState();
   const [difficulty, setDifficulty] = useState('');
   const topicChangeHandler = (e) => {
-    // console.log(e);
-    // console.log(e.target.value)
+    console.log(e);
+    console.log(e.target.value);
     setTopic(e.target.value);
   };
   const numberOfQuestionsChangeHandler = (e) => {
@@ -126,9 +137,9 @@ const QuizStart = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { amount, category, difficulty } = quiz;
-    const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
-
+    // const { amount, category, difficulty } = quiz;
+    const url = `${API_ENDPOINT}amount=${numberOfQuestions}&difficulty=${difficulty}&category=${table[topic]}&type=multiple`;
+    console.log(url);
     fetchQuestions(url);
   };
 
@@ -144,12 +155,6 @@ const QuizStart = () => {
       prevState.push(obj);
       return prevState;
     });
-    // setDisablesQues((prevState) => {
-    //   prevState.push(Number(e.target.getAttribute('q-key')));
-    //   return prevState;
-    // });
-    // console.log('response', responses);
-    // console.log('disalbes', disablesQues);
   };
 
   function shuffle(array) {
@@ -213,7 +218,7 @@ const QuizStart = () => {
     return (
       <main className="quiz-container">
         {/* <Modal /> */}
-
+        <Webcam videoConstraints={videoConstraints} />
         <section className="quiz">
           {/* <p>
             Correct Answer:{correct}/{index}
@@ -355,14 +360,16 @@ const QuizStart = () => {
                 handle.enter();
               }}
               style={{
-                backgroundColor: '#C98C70',
+                
                 width: '400px',
                 margin: '0 auto',
+                color: 'white',
               }}
+              className="quiz-start-button"
             >
               Start
             </button>
-            <p>{transcript}</p>
+            {/* <p>{transcript}</p> */}
           </form>
         </section>
       </div>
