@@ -13,13 +13,13 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
     localStorage.removeItem('username');
     localStorage.removeItem('email');
     localStorage.removeItem('type');
-    handleThemeChange('default');
+    handleThemeChange('normal');
     navigate('/');
   };
 
   return (
     <>
-      <div className={`nav-container theme-${theme ? theme : 'default'}`}>
+      <div className={`nav-container theme-${theme ? theme : 'normal'}`}>
         <div className="logo-container">
           {/* image and name  */}
           <div className="img-container">

@@ -18,7 +18,7 @@ export const ThemeProvider = ({ children }) => {
         setTheme('total');
         break;
       default:
-        setTheme('default');
+        setTheme('normal');
     }
   };
 

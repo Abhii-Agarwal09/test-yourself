@@ -8,7 +8,7 @@ function Landing() {
   return (
     <>
       <div
-        className={`description-container theme-${theme ? theme : 'default'}`}
+        className={`description-container theme-${theme ? theme : 'normal'}`}
       >
         <div className="description-logo-container">
           <img src={logo} />
@@ -24,7 +24,7 @@ function Landing() {
           validity of the test.
         </p>
       </div>
-      <div className={`made-by-container theme-${theme ? theme : 'default'}`}>
+      <div className={`made-by-container theme-${theme ? theme : 'normal'}`}>
         <p className="made-by-heading">Made by:</p>
         <div className="names">
           <ul className="names-list">

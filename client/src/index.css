@@ -24,7 +24,7 @@
   --secondary-color-complete: #fff;
 }
 
-.theme-default {
+.theme-normal{
   --primary-color: var(--primary-color-default);
   --secondary-color: var(--secondary-color-default);
   --tertiary-color: var(--tertiary-color-default);

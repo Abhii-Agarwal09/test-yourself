@@ -12,7 +12,7 @@ function Dashboard() {
     setActiveTab(e.target.attributes['data-name'].nodeValue);
   };
   return (
-    <div className={`dashboard-layout theme-${theme ? theme : 'default'}`}>
+    <div className={`dashboard-layout theme-${theme ? theme : 'normal'}`}>
       <aside className="sidebar">
         <div className="sidebar-avatar">
           <div className="sidebar-avatar-img">

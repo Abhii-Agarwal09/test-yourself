@@ -1,5 +1,5 @@
 export const themes = {
-  default: {
+  normal: {
     primaryColor: '#007bff',
     secondaryColor: '#fff',
   },
