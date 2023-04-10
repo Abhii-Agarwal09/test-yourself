@@ -276,8 +276,8 @@ const QuizStart = () => {
             );
           })}
           <button
-            className="btn"
-            style={{ width: '20%', marginRight: '1rem', color: 'black' }}
+            className="btn quiz-submit-btn"
+            // style={{ width: '20%', marginRight: '1rem', color: 'black' }}
             // onClick={nextQuestion}
             onClick={quizSubmitHandler}
           >
@@ -312,7 +312,7 @@ const QuizStart = () => {
     return (
       <div>
         <section className="quiz quiz-small">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="form-container-quiz">
             <h2 style={{ marginBottom: '2rem' }}>Let's Start Quiz</h2>
             <div className="mb-3">
               <label htmlFor="category" className="form-label">
@@ -327,10 +327,10 @@ const QuizStart = () => {
               >
                 <option value="#">Select a topic</option>
                 <option name="sports" value="sports">
-                  sports
+                  Sports
                 </option>
-                <option value="history">history</option>
-                <option value="politics">politics</option>
+                <option value="history">History</option>
+                <option value="politics">Politics</option>
               </select>
             </div>
             <div className="mb-3">
@@ -342,12 +342,11 @@ const QuizStart = () => {
                 type="number"
                 name="amount"
                 id="noOfQuestions"
-                className="form-control"
+                className="form-select"
                 value={numberOfQuestions}
                 onChange={numberOfQuestionsChangeHandler}
                 min={1}
                 max={50}
-                style={{ width: '400px' }}
               />
             </div>
             <div className="mb-3">
@@ -362,9 +361,9 @@ const QuizStart = () => {
                 onChange={difficultyChangeHandler}
               >
                 <option value="#">Select difficulty</option>
-                <option value="easy">easy</option>
-                <option value="medium">medium</option>
-                <option value="hard">hard</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
               </select>
             </div>
             {error && (
