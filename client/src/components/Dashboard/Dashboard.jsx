@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import QuizProgress from './QuizProgress';
 import QuizStart from './QuizStart';
 import Sidebar from './Sidebar';
 import { ThemeContext } from '../../context/ThemeContext';

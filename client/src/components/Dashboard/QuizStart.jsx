@@ -18,6 +18,7 @@ const QuizStart = () => {
   // const [disablesQues, setDisablesQues] = useState([]);
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const [error, setError] = useState(false);
   const [quiz, setQuiz] = useState({
@@ -102,8 +103,19 @@ const QuizStart = () => {
     setDifficulty(e.target.value);
   };
 
+  const handleFullScreenChange = () => {
+    if (!document.fullscreenElement) {
+      alert('You cannot exit full screen mode during the quiz!');
+      document.documentElement.requestFullscreen();
+    }
+  };
+
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
+    document.addEventListener('fullscreenchange', handleFullScreenChange);
+    // return () => {
+    //   document.removeEventListener('fullscreenchange', handleFullScreenChange);
+    // };
   }, []);
 
   let question, incorrect_answers, correct_answer;
@@ -126,6 +138,8 @@ const QuizStart = () => {
       answers.push(answers[tempIndex]);
       answers[tempIndex] = correct_answer;
     }
+    setIsFullScreen(true);
+    document.documentElement.requestFullscreen();
   };
 
   // console.log(questions);
@@ -140,6 +154,8 @@ const QuizStart = () => {
     // const { amount, category, difficulty } = quiz;
     const url = `${API_ENDPOINT}amount=${numberOfQuestions}&difficulty=${difficulty}&category=${table[topic]}&type=multiple`;
     console.log(url);
+    // setIsFullScreen(true);
+    document.documentElement.requestFullscreen();
     fetchQuestions(url);
   };
 
@@ -212,11 +228,13 @@ const QuizStart = () => {
       setQuestions([]);
       setResponses([]);
     }
+    setIsFullScreen(false);
+    document.exitFullscreen();
   };
 
   if (questions.length != 0) {
     return (
-      <main className="quiz-container">
+      <main className={`quiz-container ${isFullScreen ? 'fullscreen' : ''}`}>
         {/* <Modal /> */}
         <Webcam videoConstraints={videoConstraints} />
         <section className="quiz">
@@ -356,11 +374,7 @@ const QuizStart = () => {
             )}
             <button
               type="submit"
-              onClick={() => {
-                handle.enter();
-              }}
               style={{
-                
                 width: '400px',
                 margin: '0 auto',
                 color: 'white',
