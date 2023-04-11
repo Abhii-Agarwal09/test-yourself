@@ -21,6 +21,7 @@ function Login({ setIsLoggedIn }) {
       localStorage.setItem('username', res.data.data.name);
       localStorage.setItem('email', res.data.data.email);
       localStorage.setItem('type', res.data.data.colorBlindnessType);
+      localStorage.setItem('isLoggedIn', true);
       setIsLoggedIn(true);
       setLoginFormData({
         email: '',

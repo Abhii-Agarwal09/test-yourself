@@ -40,10 +40,12 @@ const ColorBlindnessTest = ({ setIsLoggedIn }) => {
       if (results < images.length) {
         if (selectedOption[0] !== '12') {
           type = 'blue-yellow';
-        } else if (selectedOption[1] !== '8') {
+        } else if (selectedOption[0] !== '12' && selectedOption[1] !== '8') {
           type = 'total';
-        } else {
+        } else if (selectedOption[1] !== '8' || selectedOption[2] !== '6') {
           type = 'red-green';
+        } else {
+          type = 'normal';
         }
         console.log(type);
         const email = localStorage.getItem('email');

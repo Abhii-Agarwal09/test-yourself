@@ -27,6 +27,7 @@ function Register({ setIsLoggedIn }) {
     if (res.data.success === true) {
       localStorage.setItem('username', res.data.data.name);
       localStorage.setItem('email', res.data.data.email);
+      localStorage.setItem('isLoggedIn', true);
       setIsLoggedIn(true);
       setRegisterFormData({
         name: '',
@@ -42,6 +43,7 @@ function Register({ setIsLoggedIn }) {
         password: '',
       });
     }
+    localStorage.setItem('isLoggedIn', true);
     setIsLoggedIn(true);
   };
 

@@ -5,14 +5,17 @@ import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Dashboard from './components/Dashboard/Dashboard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ColQuestion from './components/ColorBlindTest/ColQuestion';
 import ColorBlindnessTest from './components/ColorBlindTest/ColorblindnessTest';
 
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+  useEffect(() => {
+    const loginStatus = localStorage.getItem('isLoggedIn');
+    setIsLoggedIn(loginStatus);
+  }, []);
   return (
     <div className="App">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />

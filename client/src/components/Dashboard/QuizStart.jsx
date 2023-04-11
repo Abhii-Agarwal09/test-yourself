@@ -113,9 +113,9 @@ const QuizStart = () => {
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
     document.addEventListener('fullscreenchange', handleFullScreenChange);
-    // return () => {
-    //   document.removeEventListener('fullscreenchange', handleFullScreenChange);
-    // };
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullScreenChange);
+    };
   }, []);
 
   let question, incorrect_answers, correct_answer;
@@ -221,6 +221,7 @@ const QuizStart = () => {
       navigate('/dashboard');
       setQuestions([]);
       setResponses([]);
+      document.exitFullscreen();
       alert(`You scored ${correctAnswers} marks out of ${questions.length}`);
     } else {
       alert('There was an error while attempting the quiz. Please try again.');
@@ -228,8 +229,8 @@ const QuizStart = () => {
       setQuestions([]);
       setResponses([]);
     }
-    setIsFullScreen(false);
-    document.exitFullscreen();
+    // setIsFullScreen(false);
+    
   };
 
   if (questions.length != 0) {
